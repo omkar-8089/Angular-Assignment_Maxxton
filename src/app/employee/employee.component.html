@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Candidate List</h2>
+  <app-search-box [searchArray]="candidate_data" [searchByKey]="'name'" (resultList)="handleSearchResult($event)">
+  </app-search-box>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name
+          <a (click)="sortDetails('string')">(Sort)</a>
+        </th>
+        <th scope="col">Department</th>
+        <th scope="col">Joining_date
+          <a (click)="sortDetails('date')">(Sort)</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candiateDetails of resultList">
+        <td>{{candiateDetails.id}}</td>
+        <td>{{candiateDetails.name}}</td>
+        <td>{{candiateDetails.department}}</td>
+        <td>{{candiateDetails.joining_date}}</td>
+      </tr>
+      <tr *ngIf="resultList.length === 0">
+        <td colspan="4">No Result Found</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button type="button" class="btn btn-danger" (click)="removeCandidates('department', 'Development')">Remove
+      Candidates</button>
+    <button type="button" class="btn btn-success" (click)="getDistintDepartment()">Distinct Departments</button>
+    <button type="button" class="btn btn-success" (click)="getExperienceCandidate(2)">Get Experienced
+      Candidates</button>
+    <button type="button" class="btn btn-warning" (click)="resultList = candidate_data">Refresh Candidates</button>
+  </div>
+  <div>
+    <label *ngIf="distinctDepartmentDetails?.count">Distinct Department Count:
+      {{distinctDepartmentDetails?.count}}</label>
+  </div>
+</div>

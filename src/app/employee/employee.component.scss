@@ -1,0 +1,29 @@
+.container {
+  margin-top: 60px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+tr {
+  a {
+    font-weight: 300;
+    padding-left: 10px;
+    text-transform: lowercase;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.btn:not(:first-child) {
+  margin-left: 20px;
+  margin-top: 5px;
+  &:last-child {
+    float: right;
+  }
+}
+label {
+  margin-top: 10px;
+  font-weight: 500;
+}
